@@ -146,7 +146,59 @@
       "rating": 9.3
     }
   ],
-  "myList": [],
+  "myList": [
+    {
+      "id": "1",
+      "name": "george",
+      "movies": {
+        "id": "1",
+        "name": "The Showshank Redemption",
+        "genre": "Drama",
+        "director": "Frank Darabont",
+        "cast": [
+          "Tim Robbins",
+          "Morgan Freeman",
+          "Bob Gunton"
+        ],
+        "imgUrl": "/imgs/movies/The Shawshank Redemption.jpg",
+        "rating": 9.3
+      }
+    },
+    {
+      "id": "2",
+      "name": "george",
+      "movies": {
+        "id": "4",
+        "name": "The Godfther Part II",
+        "genre": "Gangster",
+        "director": "Francis Ford Coppola",
+        "cast": [
+          "Al Pacino",
+          "Robert De Niro",
+          "Robert Duvall"
+        ],
+        "imgUrl": "/imgs/movies/The Godfather Part II.jpg",
+        "rating": 9
+      }
+    },
+    {
+      "id": "3",
+      "name": "george",
+      "movies": {
+        "id": "1",
+        "name": "The Showshank Redemption",
+        "genre": "Drama",
+        "director": "Frank Darabont",
+        "cast": [
+          "Tim Robbins",
+          "Morgan Freeman",
+          "Bob Gunton"
+        ],
+        "imgUrl": "/imgs/movies/The Shawshank Redemption.jpg",
+        "rating": 9.3
+      }
+    }
+  ],
   "userComments": [
     {
       "id": "1",
@@ -162,6 +214,51 @@
       "id": "3",
       "movieId": "2",
       "comment": "ghas;fdkjaga"
+    },
+    {
+      "id": "4",
+      "movieId": "5",
+      "comment": "this is a fantistic movie"
+    },
+    {
+      "id": "5",
+      "movieId": "5",
+      "comment": "new comment"
+    },
+    {
+      "id": "6",
+      "movieId": "5",
+      "comment": "commmmmmment"
+    },
+    {
+      "id": "7",
+      "movieId": "4",
+      "comment": "new comment"
+    },
+    {
+      "id": "8",
+      "movieId": "4",
+      "comment": "/LKWNVB\\D/ LJ"
+    },
+    {
+      "id": "9",
+      "movieId": "1",
+      "comment": "this show toaster alret"
+    },
+    {
+      "id": "12",
+      "movieId": "4",
+      "comment": "add new comment"
+    },
+    {
+      "id": "13",
+      "movieId": "3",
+      "comment": "new comment here"
+    },
+    {
+      "id": "14",
+      "movieId": "3",
+      "comment": "hello"
     }
   ]
 }

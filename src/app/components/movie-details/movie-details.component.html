@@ -1,25 +1,48 @@
 <div class="my-5">
-    <button class="btn btn-dark" (click)="back()">Back</button>
+  <button class="btn btn-dark" (click)="back()">Back</button>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <img [src]="movie.imgUrl" class="card-img-top" alt="...">
-    </div>
+  <div class="col-md-4">
+    <img [src]="movie.imgUrl" class="card-img-top" alt="...">
+  </div>
 
-    <div class="col-md-8">
+  <div class="col-md-4">
     <h5 class="card-title">{{movie.name}}</h5>
-      <h5 class="card-title">{{movie.director}}</h5>
-      @for (cast of movie.cast; track $index) {
-        @if ($index == movie.cast.length-1) {
-          <h6 class="card-title d-inline">{{cast}}</h6>
-        }@else {
-          <h6 class="card-title d-inline">{{cast}} - </h6>
-        }
-      }
-      <p class="card-text">{{movie.rating}}</p><br><br>
+    <h5 class="card-title">{{movie.director}}</h5>
+    @for (cast of movie.cast; track $index) {
+    @if ($index == movie.cast.length-1) {
+    <h6 class="card-title d-inline">{{cast}}</h6>
+    }@else {
+    <h6 class="card-title d-inline">{{cast}} - </h6>
+    }
+    }
+    <p class="card-text">{{movie.rating}}</p><br><br>
 
-      <textarea class="textarea w-75 h-25" name="comment" #inputComment id="" placeholder="Type your comment"></textarea>
-      <button class="btn btn-primary" (click)="comment(inputComment.value, movie.id)">Comment</button>
+    <textarea class="textarea w-100 h-25" name="comment" [(ngModel)]="commentt"
+      placeholder="Type your comment"></textarea>
+    <div class="text-end"><button class="btn btn-primary" (click)="comment( movie.id)">Comment</button></div>
+  </div>
+  @if(commentList.length > 0){
+  <div class="col-md-4">
+    <h5 class="text-warning">Comments</h5>
+    @for (item of commentList; track $index) {
+    <div class="row shadow mb-3 p-3">
+      <div class="col-md-11">
+        <p>{{item.comment}}</p>
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-close " (click)="removeComment(item.id)"></button>
+      </div>
     </div>
+
+
+    }
+  </div>
+  }
+  @else if(commentList.length == 0) {
+  <div class="col-md-4">
+    <p>No Comments yet add one</p>
+  </div>
+  }
 </div>

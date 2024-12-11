@@ -9,13 +9,13 @@ import { environment } from '../../environments/environment.development';
 })
 export class ApiMoviesService {
 
-  constructor(private _httpClient:HttpClient) {}
+  constructor(private _httpClient: HttpClient) { }
 
-  getAllMovies():Observable<Imovies[]>{
+  getAllMovies(): Observable<Imovies[]> {
     return this._httpClient.get<Imovies[]>(`${environment.baseUrl}/movies`);
   }
 
-  getMoviesById(id:number):Observable<Imovies>{
+  getMoviesById(id: any): Observable<Imovies> {
     return this._httpClient.get<Imovies>(`${environment.baseUrl}/movies/${id}`);
   }
 }

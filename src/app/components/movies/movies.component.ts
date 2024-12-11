@@ -15,29 +15,29 @@ import { SharedService } from '../../services/shared.service';
 })
 export class MoviesComponent implements OnInit {
 
-  movies!:Imovies[];
+  movies!: Imovies[];
   count!: number;
   filteredMovies!: Imovies[];
 
-  constructor(private _apiMoviesService:ApiMoviesService,
-    private _myListService:MyListService,
-    private _SharedService:SharedService
-  ){
-    
+  constructor(private _apiMoviesService: ApiMoviesService,
+    private _myListService: MyListService,
+    private _SharedService: SharedService
+  ) {
+
   }
-  ngOnInit(){
+  ngOnInit() {
     this._apiMoviesService.getAllMovies().subscribe({
-      next:(res) => {
+      next: (res) => {
         this.movies = res;
         this.filteredMovies = this.movies;
       },
-      error:(err) => {
+      error: (err) => {
         console.log(err);
       }
     })
 
     this._myListService.getList().subscribe({
-      next:(res) => {
+      next: (res) => {
         this.count = res.length
       },
 
@@ -47,8 +47,8 @@ export class MoviesComponent implements OnInit {
     })
 
     this._SharedService.getSubject().subscribe({
-      next:(name) => {
-        if(name == '')
+      next: (name) => {
+        if (name == '')
           this.filteredMovies = this.movies
         else
           this.filteredMovies = this.movies.filter(movie => movie.name.includes(name))
@@ -57,9 +57,9 @@ export class MoviesComponent implements OnInit {
 
   }
 
-  addToList(id: number){
+  addToList(id: string) {
     this._apiMoviesService.getMoviesById(id).subscribe({
-      next:(res) => {
+      next: (res) => {
         console.log(res);
         let myList: ImyList = {
           "id": (++this.count).toString(),
@@ -67,11 +67,11 @@ export class MoviesComponent implements OnInit {
           "movies": res
         };
         this._myListService.addToList(myList).subscribe({
-          next:() => alert('added successfully'),
-          error:(err) => console.log(err)
+          next: () => alert('added successfully'),
+          error: (err) => console.log(err)
         })
       },
-      error:(err) => console.log(err)
-    });   
+      error: (err) => console.log(err)
+    });
   }
 }
