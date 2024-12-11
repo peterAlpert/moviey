@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Imovies } from '../models/imovies';
+import { Imovies } from '../models/iproduct';
 import { ApiMoviesService } from './api-movies.service';
 
 @Injectable({

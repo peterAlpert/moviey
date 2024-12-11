@@ -7,6 +7,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
+import { SeriesDetailsComponent } from './components/series-details/series-details.component';
 
 export const routes: Routes = [
     {path: "home", component: HomeComponent},
@@ -17,4 +18,5 @@ export const routes: Routes = [
     {path: "signUp", component: SignUpComponent},
     {path: "myList", component: FavouritesComponent},
     {path: "movie-details/:id", component: MovieDetailsComponent},
+    {path: "series-details/:id", component: SeriesDetailsComponent},
 ];

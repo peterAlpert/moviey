@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="list">
+  <ul>
+    <div class="row">
+      
+      <div class="col-md-4" *ngFor="let item of products | paginate: { itemsPerPage: 3, currentPage: currentPage }">
+        <div class="card text-start">
+          <img class="card-img-top" [src]="item.imgUrl" height="400px" alt="Title" />
+          <div class="card-body">
+            <h4 class="card-title">{{item.name}}</h4>
+            <p class="card-text">{{item.rating}}</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </ul>
+
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>

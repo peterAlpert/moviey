@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiMoviesService } from '../../services/api-movies.service';
-import { Imovies } from '../../models/imovies';
+import { Imovies } from '../../models/iproduct';
 import { RouterLink } from '@angular/router';
 import { MyListService } from '../../services/my-list.service';
 import { ImyList } from '../../models/imy-list';

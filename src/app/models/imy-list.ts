@@ -1,4 +1,4 @@
-import { Imovies } from "./imovies";
+import { Imovies } from "./iproduct";
 
 export interface ImyList {
     id:string,

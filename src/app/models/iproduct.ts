@@ -1,5 +1,8 @@
+
+
 export interface Imovies {
     id:string;
+    type:string;
     name:string;
     genre:string;
     director:string;

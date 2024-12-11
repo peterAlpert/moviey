@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Imovies } from '../../models/imovies';
+import { Imovies } from '../../models/iproduct';
 import { ApiMoviesService } from '../../services/api-movies.service';
 import { FormsModule } from '@angular/forms';
 import { SharedService } from '../../services/shared.service';

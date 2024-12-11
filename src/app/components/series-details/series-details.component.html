@@ -1,0 +1,48 @@
+<div class="my-5">
+    <button class="btn btn-dark" (click)="back()">Back</button>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="series.imgUrl" class="card-img-top" alt="...">
+    </div>
+  
+    <div class="col-md-4">
+      <h5 class="card-title">{{series.name}}</h5>
+      <h5 class="card-title">{{series.director}}</h5>
+      @for (cast of series.cast; track $index) {
+      @if ($index == series.cast.length-1) {
+      <h6 class="card-title d-inline">{{cast}}</h6>
+      }@else {
+      <h6 class="card-title d-inline">{{cast}} - </h6>
+      }
+      }
+      <p class="card-text">{{series.rating}}</p><br><br>
+  
+      <textarea class="textarea w-100 h-25" name="comment" [(ngModel)]="commentt"
+        placeholder="Type your comment"></textarea>
+      <div class="text-end"><button class="btn btn-primary" (click)="comment( series.id)">Comment</button></div>
+    </div>
+    @if(commentList.length > 0){
+    <div class="col-md-4">
+      <h5 class="text-warning">Comments</h5>
+      @for (item of commentList; track $index) {
+      <div class="row shadow mb-3 p-3">
+        <div class="col-md-11">
+          <p>{{item.comment}}</p>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-close " (click)="removeComment(item.id)"></button>
+        </div>
+      </div>
+  
+  
+      }
+    </div>
+    }
+    @else if(commentList.length == 0) {
+    <div class="col-md-4">
+      <p>No Comments yet add one</p>
+    </div>
+    }
+  </div>
