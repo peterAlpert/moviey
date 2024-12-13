@@ -15,9 +15,9 @@ import { SharedService } from '../../services/shared.service';
 })
 export class MoviesComponent implements OnInit {
 
-  movies!: Imovies[];
-  count!: number;
-  filteredMovies!: Imovies[];
+  movies: Imovies[] = [];
+  // count: number = 0;
+  filteredMovies: Imovies[] = [];
 
   constructor(private _apiMoviesService: ApiMoviesService,
     private _myListService: MyListService,
@@ -26,8 +26,9 @@ export class MoviesComponent implements OnInit {
 
   }
   ngOnInit() {
-    this._apiMoviesService.getAllMovies().subscribe({
+    this._apiMoviesService.getProductsByType('Movie').subscribe({
       next: (res) => {
+
         this.movies = res;
         this.filteredMovies = this.movies;
       },
@@ -36,15 +37,15 @@ export class MoviesComponent implements OnInit {
       }
     })
 
-    this._myListService.getList().subscribe({
-      next: (res) => {
-        this.count = res.length
-      },
+    // this._myListService.getList().subscribe({
+    //   next: (res) => {
+    //     this.count = res.length
+    //   },
 
-      error: (err) => {
-        console.log(err);
-      }
-    })
+    //   error: (err) => {
+    //     console.log(err);
+    //   }
+    // })
 
     this._SharedService.getSubject().subscribe({
       next: (name) => {
@@ -57,13 +58,11 @@ export class MoviesComponent implements OnInit {
 
   }
 
-  addToList(id: string) {
-    this._apiMoviesService.getMoviesById(id).subscribe({
+  addToList(id: any) {
+    this._apiMoviesService.getProductById(id).subscribe({
       next: (res) => {
         console.log(res);
         let myList: ImyList = {
-          "id": (++this.count).toString(),
-          "name": "george",
           "movies": res
         };
         this._myListService.addToList(myList).subscribe({

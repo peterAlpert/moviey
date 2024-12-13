@@ -1,5 +1,5 @@
 export interface Icomment {
-    id: string,
+    id?: number,
     movieId: string,
     comment: string
 }

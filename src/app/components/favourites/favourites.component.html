@@ -1,16 +1,16 @@
 <!-- <h1>{{myList[0].name}}</h1> -->
 
 @for (item of myList; track $index) {
-    <div class="row w-50 mx-auto shadow my-5 p-2">
-        <div class="col-md-4">
-            <img [src]="item.movies.imgUrl" width="100px" alt="">
-        </div>
-        <div class="col-md-7">
-            <h6>{{item.movies.name}}</h6>
-            <h6>{{item.movies.rating}}</h6>
-        </div>
-        <div class="col-md-1">
-            <button class="btn btn-outline-close" (click)="remove(item.id)">X</button>
-        </div>
+<div class="row w-50 mx-auto shadow my-5 p-2">
+    <div class="col-md-4">
+        <img [src]="item.movies.imgUrl" width="100px" alt="">
     </div>
+    <div class="col-md-7">
+        <h6>{{item.movies.name}}</h6>
+        <h6>{{item.movies.rating}}</h6>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-outline-close" (click)="remove(item.id)">X</button>
+    </div>
+</div>
 }

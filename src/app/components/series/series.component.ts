@@ -16,15 +16,15 @@ export class SeriesComponent implements OnInit {
 
   series!: Imovies[];
   count!: number
-  
 
-  constructor(private _ApiSeriesService:ApiSeriesService,
-    private _myListService:MyListService
-  ){}
-  ngOnInit(){
+
+  constructor(private _ApiSeriesService: ApiSeriesService,
+    private _myListService: MyListService
+  ) { }
+  ngOnInit() {
     this._ApiSeriesService.getAllSeries().subscribe({
-      next:(res) => this.series = res,
-      error:(err) => console.log(err)
+      next: (res) => this.series = res,
+      error: (err) => console.log(err)
     })
 
     this._myListService.getList().subscribe({
@@ -38,13 +38,11 @@ export class SeriesComponent implements OnInit {
     })
   }
 
-  addToList(id: string) {
+  addToList(id: any) {
     this._ApiSeriesService.getSeriesById(id).subscribe({
       next: (res) => {
         console.log(res);
         let myList: ImyList = {
-          "id": (++this.count).toString(),
-          "name": "george",
           "movies": res
         };
         this._myListService.addToList(myList).subscribe({

@@ -16,17 +16,17 @@ export class HeaderComponent implements OnInit {
   movies!: Imovies[];
   movieName: string = '';
 
-  constructor(private _apiMoviesService:ApiMoviesService,
-    private _SharedService:SharedService
-  ){}
+  constructor(private _apiMoviesService: ApiMoviesService,
+    private _SharedService: SharedService
+  ) { }
   ngOnInit(): void {
-    this._apiMoviesService.getAllMovies().subscribe({
-      next:(res) => this.movies = res,
-      error:(err) => console.log(err)
+    this._apiMoviesService.getAllProducts().subscribe({
+      next: (res) => this.movies = res,
+      error: (err) => console.log(err)
     })
   }
 
-  search(){
+  search() {
     this._SharedService.search(this.movieName);
   }
 }

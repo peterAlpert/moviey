@@ -9,17 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class MyListService {
 
-  constructor(private _httpClient:HttpClient) { }
+  constructor(private _httpClient: HttpClient) { }
 
-  getList(): Observable<ImyList[]>{
-    return this._httpClient.get<ImyList[]>(`${environment.baseUrl}/myList`);
+  getList(): Observable<ImyList[]> {
+    return this._httpClient.get<ImyList[]>(`${environment.baseUrl}/Watchlist`);
   }
 
-  addToList(obj: ImyList): Observable<any>{
-    return this._httpClient.post(`${environment.baseUrl}/myList`, obj)
+  addToList(obj: ImyList): Observable<any> {
+    return this._httpClient.post(`${environment.baseUrl}/Watchlist`, obj)
   }
 
-  remove(id:string): Observable<any>{
-    return this._httpClient.delete(`${environment.baseUrl}/myList/${id}`)
+  remove(id: number): Observable<any> {
+    return this._httpClient.delete(`${environment.baseUrl}/Watchlist/${id}`)
   }
 }

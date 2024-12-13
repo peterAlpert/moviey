@@ -11,23 +11,23 @@ import { ImyList } from '../../models/imy-list';
 })
 export class FavouritesComponent implements OnInit {
   myList!: ImyList[]
-  
-  constructor(private _myListService:MyListService){}
+
+  constructor(private _myListService: MyListService) { }
   ngOnInit(): void {
     this._myListService.getList().subscribe({
-      next:(res) => this.myList =res,
-      error:(err) => console.log(err)
+      next: (res) => this.myList = res,
+      error: (err) => console.log(err)
     })
   }
 
-  remove(id: string){
+  remove(id: any) {
     this._myListService.remove(id).subscribe({
-      next:() => {
+      next: () => {
         alert("removed successfully");
         this.myList = this.myList.filter(item => item.id != id)
         console.log(this.myList);
       },
-      error:(err) => console.log(err)
+      error: (err) => console.log(err)
     })
 
     console.log(id);

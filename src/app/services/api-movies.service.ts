@@ -11,11 +11,15 @@ export class ApiMoviesService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getAllMovies(): Observable<Imovies[]> {
-    return this._httpClient.get<Imovies[]>(`${environment.baseUrl}/movies`);
+  getAllProducts(): Observable<Imovies[]> {
+    return this._httpClient.get<Imovies[]>(`${environment.baseUrl}/Product`);
   }
 
-  getMoviesById(id: any): Observable<Imovies> {
-    return this._httpClient.get<Imovies>(`${environment.baseUrl}/movies/${id}`);
+  getProductById(id: any): Observable<Imovies> {
+    return this._httpClient.get<Imovies>(`${environment.baseUrl}/Product/id?id=${id}`);
+  }
+
+  getProductsByType(str: string): Observable<Imovies[]> {
+    return this._httpClient.get<Imovies[]>(`${environment.baseUrl}/Product/GetProductsByType?str=${str}`);
   }
 }

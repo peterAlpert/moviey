@@ -19,7 +19,7 @@ export class CommentService {
     return this._HttpClient.post(`${environment.baseUrl}/userComments`, comment);
   }
 
-  removeComment(id: string): Observable<any> {
+  removeComment(id: number): Observable<any> {
     return this._HttpClient.delete(`${environment.baseUrl}/userComments/${id}`)
   }
 }
